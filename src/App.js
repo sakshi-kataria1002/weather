@@ -21,13 +21,15 @@ class App extends React.Component{
     }
   }
 
-  getWeather = async(e) => {
-    const city = e.target.elements.city.value;
-    const country = e.target.elements.country.value;
-    e.preventDefault();
+  getWeather = async(event) => {
+    const city = event.target.elements.city.value;
+    const country = event.target.elements.country.value;
+    event.preventDefault();
+    
     const api_call = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city},${country}&units=imperial&appid=${api_key}`)
 
     const response = await api_call.json();
+    
     if(city && country){
       this.setState({
         temperature: response.main.temp,

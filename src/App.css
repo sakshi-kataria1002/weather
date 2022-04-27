@@ -7,9 +7,9 @@ html {
 }
 
 .container {
-    background-image: url("https://cdn.dribbble.com/users/778661/screenshots/2714153/weatherc.png");
-    width: 80%;
-    height: 80%;
+    background-image: url("https://nordicapis.com/wp-content/uploads/How-to-Build-an-API-Driven-Weather-App.png");
+    width: 50%;
+    height: 0%;
     border: 3px solid #336699;
     box-shadow: 2px 2px #669999;
     text-align: center;
