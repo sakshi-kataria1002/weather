@@ -21,33 +21,28 @@ class App extends React.Component{
     }
   }
 
-  componentDidMount(){
+  getWeather = () =>{
     fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city},${country}&units=imperial&appid=${api_key}`)
-    .then(response => response.json())
-}
-
-  getWeather = async(event) => {
-    const city = event.target.elements.city.value;
-    const country = event.target.elements.country.value;
-    event.preventDefault();
-    
-    if(city && country){
+    .then(result => result.json())
+    .then(response=> {
+        console.log(response);
       this.setState({
-        temperature: response.main.temp,
-        city: response.name,
-        country: response.sys.country,
-        humidity: response.main.humidity,
-        pressure: response.main.pressure,
-        icon: response.weather[0].icon, 
-        description: response.weather[0].description,
-        error: ""
-      })
-    } else{
-      this.setState({
-        error: "Please fill out input fields..."
-      })
-    }
-  }
+        if(city && country){
+          this.setState({
+            temperature: response.main.temp,
+            city: response.name,
+            country: response.sys.country,
+            humidity: response.main.humidity,
+            pressure: response.main.pressure,
+            icon: response.weather[0].icon, 
+            description: response.weather[0].description,
+            error: ""
+          })
+        } else{
+          this.setState({
+            error: "Please fill out input fields..."
+          })
+        }
 
   render(){
     const {temperature,city,country,humidity,pressure,icon,description,error} = this.state
