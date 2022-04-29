@@ -1,0 +1,3 @@
+export const USER_ACTION_TYPES = {
+    GET_FORECAST: 'GET_FORECAST'
+}
